@@ -1,0 +1,43 @@
+﻿<html>
+<head>
+    <title>Using Sessions in Express apps</title>
+	
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+      <script>
+    $(document).ready(function () {
+        $("#submit").click(function () {
+            window.location.href = "/login";			
+			
+        });
+    });
+
+	 
+    </script>
+
+</head>
+<body >
+ 	<%include master.html%>
+  
+    <div id="main">
+
+        <h2>!!Thanks!! <%=first%> for your feedback</h2>  
+
+        <div style="margin:3%" >
+            <Table type="Table1" height="400">
+                <tr Height="36px">
+                    <td width="140px"><h3>Dear <%=last%> , </br> please check <%=email%> for daily updates</h3></td>
+                                 
+                <tr Height="10px">
+                    <td width="460px">
+                        <input type="button" value="back" id="submit">
+                    </td>					
+                </tr>
+            </Table>
+
+
+            </div>
+        </div>
+   
+</body>
+</html>

@@ -1,0 +1,90 @@
+﻿<html>
+<head>
+    <title>Using Sessions in Express apps</title>
+	
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	
+
+	 
+	  <script>
+	 
+    $(document).ready(function () {
+        var firstName, lastName,email,desp,skills,edu;
+        $("#submit1").click(function () {
+            firstName = $("#firstName").val();
+            lastName = $("#lastName").val();
+			 email = $("#email").val();
+             edu = $("#password").val();	
+			 skills = $("#skills").val();          
+			 desp = $("#desp").val();
+					
+			 $.post("http://localhost:3000/feedbackDb",
+			  { firstName: firstName, lastName: lastName,email: email, edu: edu,skills: skills,desp:desp }, function (data) {
+                if (data === 'done') {
+                     window.location.href = "/login";//thankYou
+					
+                }				
+            }); 			 
+        });
+    });
+
+	
+    </script>
+</head>
+<body id="body">
+  <%include master.html%>
+
+    <div id="main">
+	<h1 >Feedback Form</h1>
+        <Table type="Table1" height="400">
+		 
+            <tr Height="36px">
+                <td width="140px">First Name:		</td>
+				 <td width="140px"></td>
+                <td width="460px">
+                    <input type="text" width="200px" size="30" placeholder="first name" id="firstName">
+                </td>
+            </tr>
+            <tr Height="36px">
+                <td width="140px">Last Name:		</td>
+                 <td width="140px"></td>
+				<td width="460px"><input type="text" width="200px" size="30" placeholder="last name" id="lastName"></td>
+
+            </tr>
+            <tr Height="36px">
+                <td width="140px">Email:			</td>
+				 <td width="140px"></td>
+                <td width="460px">
+                        <input type="text" value=<%=username%> width="200px" size="30" id="email">
+                </td>
+
+            </tr>
+            <tr Height="36px">
+                <td width="140px">Education:		</td>
+				 <td width="140px"></td>
+                <td width="460px"><input type="text" width="200px" size="30" placeholder="diploma/bachelors/master" id="edu"></td>
+                
+            </tr>
+
+			  <tr Height="36px">
+                <td width="140px">Skills:			</td>
+				 <td width="140px"></td>
+                <td width="460px"><input type="text" width="200px" size="30" placeholder="java/music/leader..." id="skills"></td>
+              
+
+             </tr>
+			 <tr Height="36px">
+                <td width="140px">Comments:		</td>
+				 <td width="140px">  </td>
+                <td width="460px"><textarea name="comments" rows="5" cols="28" placeholder="optional" id="desp"></textarea><br><br></td>
+                            </tr>
+							
+			 <tr Height="36px">
+                <td> <input id="submit1" type="button" value="submit"   /></td>
+				 </tr>
+			
+        </Table>
+  
+        </div>
+</body>
+</html>
